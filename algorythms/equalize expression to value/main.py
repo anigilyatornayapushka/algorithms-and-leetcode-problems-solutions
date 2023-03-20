@@ -1,6 +1,7 @@
 answers = set()
 answers_count = 0
 
+
 def calc(ex, sol, ex_length, n, oper):
     global answers, answers_count
 
@@ -9,8 +10,10 @@ def calc(ex, sol, ex_length, n, oper):
     try:
         if eval(ex) == sol:
             answers.add(ex)
-    except ZeroDivisionError:
-        return
+            return
+    except:
+        ZeroDivisionError, SyntaxError
+        
     
     for i in range(n, ex_length):
         new_ex = ex[:i] + oper + ex[i:]
@@ -25,7 +28,7 @@ def main():
 
     ex = input('expression : ')
     sol = int(input('equalize to : '))
-    answers_count = int(input('minimum count of answers : '))
+    answers_count = int(input('maximum count of answers : '))
 
     calc(ex, sol, len(ex), 1, "+")
     calc(ex, sol, len(ex), 1, "-")
