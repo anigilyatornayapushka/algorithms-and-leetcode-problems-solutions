@@ -1,16 +1,25 @@
-from time import perf_counter_ns
+from typing import (
+    Callable,
+    Any,
+)
 
 
-def time(fn):
-
-    def wrapper(*args, **kwargs):
-        start = perf_counter_ns()
-        fn(*args, **kwargs)
-        end = perf_counter_ns()
-        print('[INFO] function "{0}" ran in {1} seconds'.format(
-            fn.__name__,
-            (end-start) / pow(10, 9)
-        ))
-        return fn(*args, **kwargs)
-
+def repeat(n: int) -> Any:
+    def wrapper(func: Callable) -> Any:
+        def inner_wrapper(*args, **kwargs) -> Any:
+            for i in range(n):
+                result = func(*args, **kwargs)
+            return result
+        return inner_wrapper
     return wrapper
+
+
+@repeat(
+    n=5
+)
+def main():
+    print(5)
+    return 10
+
+
+print(main())
