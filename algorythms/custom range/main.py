@@ -1,5 +1,6 @@
 class Range:
     """Custom range."""
+
     def __init__(
             self,
             start: int,
@@ -11,7 +12,6 @@ class Range:
         if stop is 0:
             self.start, self.stop = self.stop, self.start
         self.step = step
-
 
     def __iter__(self) -> int:
         while self.start < self.stop:

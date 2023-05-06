@@ -1,11 +1,8 @@
 def qSort(arr: list) -> list:
-    return arr if len(arr) < 2 else\
-        qSort(
-            (lambda: [i for i in arr if i < arr[0]])()
-        )\
-        +\
-        (lambda: [i for i in arr if i == arr[0]])()\
-        +\
-        qSort(
-            (lambda: [i for i in arr if i > arr[0]])()
-        )
+    if len(arr) < 2:
+        return arr
+    elem = arr[0]
+    lt = [i for i in arr if i < elem]
+    eq = [i for i in arr if i == elem]
+    gt = [i for i in arr if i > elem]
+    return qSort(lt) + eq + qSort(gt)

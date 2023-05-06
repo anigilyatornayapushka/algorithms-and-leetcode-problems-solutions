@@ -36,6 +36,3 @@ def main():
     calc(ex, sol, len(ex), 1, "/")
 
     return list(answers)
-
-
-print(main())
