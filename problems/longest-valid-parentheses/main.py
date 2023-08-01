@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/longest-valid-parentheses/submissions/1009540029/
 
+
+# Solution № 1
+
 import re
 
 
@@ -30,3 +33,30 @@ class Solution:
             return 0
 
         return self.longestValidParentheses(string)
+
+
+# Solution № 2
+
+class Solution:
+
+    def longestValidParentheses(self, s):
+        n = 0
+        length = len(s)
+        extras = [i for i in range(length)]
+
+        while '()' in s:
+            i = s.find('()')
+            s = s.replace('()', '', 1)
+            n += 2
+            extras.pop(i)
+            extras.pop(i)
+        if s:
+            extras = [-1] + extras + [length]
+
+            l = 0
+            for i in range(len(extras)-1):
+                l = max(l, extras[i+1]-extras[i]-1)
+
+            return l
+
+        return n
