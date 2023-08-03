@@ -22,6 +22,7 @@ class Permutator:
         for i in range(len(data)):
             other = data[:i] + data[i+1:]
 
-            for w in self.as_generator(other):
-                all_.append(data[i] + w)
+            for word in self.as_iterator(other):
+                all_.append(data[i] + word)
+
         return all_
