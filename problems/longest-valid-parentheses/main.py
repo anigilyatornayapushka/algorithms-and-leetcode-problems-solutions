@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/longest-valid-parentheses/submissions/1009540029/
+# https://leetcode.com/problems/longest-valid-parentheses/
 
 
 # Solution № 1

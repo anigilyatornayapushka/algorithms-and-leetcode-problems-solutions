@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/first-missing-positive/submissions/886947701/
+# https://leetcode.com/problems/first-missing-positive/
 
 class Solution:
     def firstMissingPositive(self, nums):

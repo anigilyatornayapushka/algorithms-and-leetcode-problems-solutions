@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/reverse-nodes-in-k-group/submissions/
+# https://leetcode.com/problems/reverse-nodes-in-k-group/
 
 class ListNode:
     def __init__(self, val=0, next=None):
